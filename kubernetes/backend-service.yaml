@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: paymybuddy-backend
+  namespace: paymybuddy
+spec:
+  selector:
+    app: paymybuddy-backend
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: NodePort
