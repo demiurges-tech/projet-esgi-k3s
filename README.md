@@ -1,4 +1,4 @@
-## Dokcerfile
+## Dockerfile
 le fichier contient les informations pour construire l'image de paymybuddy. 
 On se base sur une image aws puis on vient exécuter le logiciel java.
     projet-esgi-k3s
@@ -10,6 +10,7 @@ Au lieu de build une image pour la bdd on la configure dans le conpose et on vie
 Ensuite on relier les deux en appelant le port de la bdd.
 
 une fois éxécuter on on voit accede à l'application
+[/screenshot_14032025_133832.jpg](https://github.com/demiurges-tech/projet-esgi-k3s/blob/main/screenshot_14032025_133832.jpg)
 
 
 ## Kubctl
