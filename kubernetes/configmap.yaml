@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: paymybuddy-config
-  namespace: paymybuddy
-data:
-  database_url: jdbc:mysql://paymybuddy-db:3306/db_paymybuddy

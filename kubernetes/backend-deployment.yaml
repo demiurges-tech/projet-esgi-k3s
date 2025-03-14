@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: paymybuddy-backend
-  namespace: paymybuddy
 spec:
   replicas: 1
   selector:
@@ -16,7 +15,6 @@ spec:
       containers:
       - name: paymybuddy-backend
         image: paymybuddy-backend:latest
-        imagePullPolicy: Never
         ports:
         - containerPort: 8080
         env:
@@ -33,5 +31,5 @@ spec:
         - name: SPRING_DATASOURCE_URL
           valueFrom:
             configMapKeyRef:
-              name: paymybuddy-config
-              key: database_url
+              name: mysql-config
+              key: connection-url

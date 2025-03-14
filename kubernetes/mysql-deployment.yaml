@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: paymybuddy-db
-  namespace: paymybuddy
 spec:
   replicas: 1
   selector:
@@ -16,6 +15,8 @@ spec:
       containers:
       - name: mysql
         image: mysql:8.0
+        ports:
+        - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
@@ -24,17 +25,15 @@ spec:
               key: password
         - name: MYSQL_DATABASE
           value: db_paymybuddy
-        ports:
-        - containerPort: 3306
         volumeMounts:
-        - name: mysql-persistent-storage
+        - name: mysql-data
           mountPath: /var/lib/mysql
-        - name: mysql-init-script
+        - name: init-db
           mountPath: /docker-entrypoint-initdb.d
       volumes:
-      - name: mysql-persistent-storage
+      - name: mysql-data
         persistentVolumeClaim:
           claimName: mysql-pvc
-      - name: mysql-init-script
+      - name: init-db
         configMap:
-          name: mysql-init-script
+          name: mysql-init-scripts
