@@ -15,3 +15,28 @@ une fois éxécuter on on voit accede à l'application
 
 
 ## Kubctl
+
+### backend-deployment.yaml 
+Ici on configure les pods qui seront déployer, avec leur varibales, et les ports éxposés
+
+### backend-service.yaml 
+On y configure le service pour exposer l'application backend, permettant ainsi à d'autres composants du cluster ou à l'extérieur du cluster d'y accéder.
+
+### mysql-configmap.yaml
+Ce fichier cContient des données de configuration non sensibles sous forme de ConfigMap pour la base de données MySQL.
+
+### mysql-deployment.yaml
+On y définit le déploiement pour le conteneur MySQL.
+
+### mysql-init-configmap.yaml
+Permet d'exécuter le service mysql
+
+### mysql-pvc.yaml
+Définit un PersistentVolumeClaim (PVC)
+
+### mysql-secret.yaml
+On y stocke les données sensibles
+
+### mysql-service.yaml
+Définit un Service pour exposer MySQL au sein du cluster.
+
