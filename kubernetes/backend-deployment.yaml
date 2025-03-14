@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: paymybuddy-backend
-        image: paymybuddy-backend:latest
+        image: vagrant/paymybuddy-backend:latest
         ports:
         - containerPort: 8080
         env:
